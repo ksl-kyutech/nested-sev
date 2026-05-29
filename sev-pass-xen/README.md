@@ -1,2 +1,2 @@
-# SEV Virtualization for KVM
+# SEV Passthrough for Xen
 Coming soon.

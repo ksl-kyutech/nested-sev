@@ -1,2 +1,2 @@
-# SEV Virtualization for KVM
+# SEV Virtualization for BitVisor
 Coming soon.
