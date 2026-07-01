@@ -73,7 +73,6 @@ sudo cp Build/OvmfX64/DEBUG_GCC5/FV/OVMF.fd /usr/local/nsev/bios
    L1 OVMF.
 
    ```
-   cd nested-sev
    sudo ./run-l1.sh
    ```
 
