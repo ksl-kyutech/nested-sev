@@ -48,6 +48,20 @@ make
 sudo make install
 ```
 
+## Build L1 OVMF
+
+Build OVMF with support for SEV-SNP.
+
+```
+git clone https://github.com/tianocore/edk2
+cd edk2
+make -C BaseTools
+source edksetup.sh
+build -p OvmfPkg/OvmfPkgX64.dsc -a X64 -t GCC5 -b DEBUG
+mkdir -p /usr/local/nsev/bios
+sudo cp Build/OvmfX64/DEBUG_GCC5/FV/OVMF.fd /usr/local/nsev/bios
+```
+
 ## Boot L1 VM
 
 1. Create an L1 VM image with Ubuntu 24.04.
@@ -55,7 +69,8 @@ sudo make install
 2. Rename the image name to l1-vm.qcow2 and place it in
    /usr/local/nsev/images.
 
-3. Run the following script to boot an L1 VM with L0 KVM and L0 QEMU.
+3. Run the following script to boot an L1 VM with L0 KVM, L0 QEMU, and
+   L1 OVMF.
 
    ```
    cd nested-sev
