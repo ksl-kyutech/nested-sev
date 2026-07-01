@@ -14,6 +14,56 @@ partially virtualizes SEV and uses the same SEV context as the L1 VM.
 It protects L2 VMs against the L0 hypervisor but allows the L1
 hypervisor to access the internal state of L2 VMs.
 
+<a id="build-l0-kvm"></a>
+## Build L0 KVM
+
+1. Build and install the Linux kernel with support for nested SEV on
+   the host.
+
+   ```
+   git clone https://github.com/ksl-kyutech/linux
+   cd linux
+   make
+   make modules_install
+   make install
+   ```
+
+   <!-- todo: kernel config -->
+
+2. Reboot the host with the kernel.
+
+<a id="build-l0-qemu"></a>
+## Build L0 QEMU
+
+Build and install QEMU with support for nested SEV on the host.
+
+```
+git clone https://github.com/ksl-kyutech/qemu
+cd qemu
+mkdir build
+cd build
+../configure --prefix=/usr/local/nsev --target-list=x86_64-softmmu \
+    --enable-kvm
+make
+sudo make install
+```
+
+## Boot L1 VM
+
+1. Create an L1 VM image with Ubuntu 24.04.
+
+2. Rename the image name to l1-vm.qcow2 and place it in
+   /usr/local/nsev/images.
+
+3. Run the following script to boot an L1 VM with L0 KVM and L0 QEMU.
+
+   ```
+   cd nested-sev
+   sudo ./run-l1.sh
+   ```
+
+## Next Step
+
 - [SEV Virtualization with KVM](https://github.com/ksl-kyutech/nested-sev/blob/main/sev-virt-kvm/README.md)
 - [SEV Passthrough with KVM](https://github.com/ksl-kyutech/nested-sev/blob/main/sev-pass-kvm/README.md)
 - [SEV Virtualization with BitVisor](https://github.com/ksl-kyutech/nested-sev/blob/main/sev-virt-bv/README.md)
