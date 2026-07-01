@@ -16,9 +16,9 @@ the instruction for building L0 QEMU.
 
 ## Install L2 OVMF
 
-Install OVMF with support for SEV virtualization in the L1 VM.  This
-is the same as L1 OVMF.  If you build this OVMF in the L1 VM, follow
-the instruction for building L1 OVMF.
+Install OVMF with support for SEV-SNP in the L1 VM.  This is the same
+as L1 OVMF.  If you build this OVMF in the L1 VM, follow the
+instruction for building L1 OVMF.
 
 ## Boot L2 VM
 
