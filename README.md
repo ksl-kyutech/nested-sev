@@ -24,8 +24,8 @@ hypervisor to access the internal state of L2 VMs.
    git clone https://github.com/ksl-kyutech/linux
    cd linux
    make
-   make modules_install
-   make install
+   sudo make modules_install
+   sudo make install
    ```
 
    <!-- todo: kernel config -->
@@ -58,7 +58,7 @@ cd edk2
 make -C BaseTools
 source edksetup.sh
 build -p OvmfPkg/OvmfPkgX64.dsc -a X64 -t GCC5 -b DEBUG
-mkdir -p /usr/local/nsev/bios
+sudo mkdir -p /usr/local/nsev/bios
 sudo cp Build/OvmfX64/DEBUG_GCC5/FV/OVMF.fd /usr/local/nsev/bios
 ```
 
