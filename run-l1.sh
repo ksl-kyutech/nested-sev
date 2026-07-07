@@ -23,6 +23,6 @@ $QEMU \
     -device virtio-scsi-pci,id=scsi,disable-legacy=on,iommu_platform=true \
     -drive file=$DISK,if=none,id=disk0,format=qcow2 \
     -device scsi-hd,drive=disk0 \
-    -device virtio-net-pci,netdev=net0,id=virbr0,romfile= \
-    -netdev bridge,id=net0,br=virbr0,helper=/usr/lib/qemu/qemu-bridge-helper \
+    -device virtio-net-pci,netdev=net0 \
+    -netdev user,id=net0 \
     -display none -vga none -serial stdio

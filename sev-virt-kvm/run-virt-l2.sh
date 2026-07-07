@@ -25,6 +25,6 @@ $QEMU \
     -device virtio-scsi-pci,id=scsi,disable-legacy=on \
     -drive file=$DISK,if=none,id=disk0,format=qcow2 \
     -device scsi-hd,drive=disk0 \
-    -device virtio-net-pci,netdev=tap0,id=virbr0,romfile= \
-    -netdev tap,id=tap0,helper=/usr/lib/qemu/qemu-bridge-helper,vhost=on,br=virbr0 \
+    -device virtio-net-pci,netdev=net0 \
+    -netdev user,id=net0 \
     -vga none -display none -nographic -nodefaults -serial stdio

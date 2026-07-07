@@ -21,8 +21,8 @@ hypervisor to access the internal state of L2 VMs.
    the host.
 
    ```
-   git clone https://github.com/ksl-kyutech/linux
-   cd linux
+   git clone https://github.com/ksl-kyutech/nsev-linux
+   cd nsev-linux
    make
    sudo make modules_install
    sudo make install
@@ -38,8 +38,8 @@ hypervisor to access the internal state of L2 VMs.
 Build and install QEMU with support for nested SEV on the host.
 
 ```
-git clone https://github.com/ksl-kyutech/qemu
-cd qemu
+git clone https://github.com/ksl-kyutech/nsev-qemu
+cd nsev-qemu
 mkdir build
 cd build
 ../configure --prefix=/usr/local/nsev --target-list=x86_64-softmmu \
@@ -55,11 +55,12 @@ Build OVMF with support for SEV-SNP.
 ```
 git clone https://github.com/tianocore/edk2
 cd edk2
+git submodule update --init --recursive
 make -C BaseTools
 source edksetup.sh
-build -p OvmfPkg/OvmfPkgX64.dsc -a X64 -t GCC5 -b DEBUG
+build -p OvmfPkg/OvmfPkgX64.dsc -a X64 -t GCC -b DEBUG
 sudo mkdir -p /usr/local/nsev/bios
-sudo cp Build/OvmfX64/DEBUG_GCC5/FV/OVMF.fd /usr/local/nsev/bios
+sudo cp Build/OvmfX64/DEBUG_GCC/FV/OVMF.fd /usr/local/nsev/bios
 ```
 
 ## Boot L1 VM
