@@ -29,6 +29,13 @@ hypervisor to access the internal state of L2 VMs.
    sudo make install
    ```
 
+   Check that the following configs are enabled.
+
+   ```
+   CONFIG_SEV_SHARED=m
+   CONFIG_SNP_MEM=m
+   ```
+
 2. Reboot the host with the kernel.
 
 <a id="build-l0-qemu"></a>
