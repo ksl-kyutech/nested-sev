@@ -70,7 +70,10 @@ sudo cp Build/OvmfX64/DEBUG_GCC/FV/OVMF.fd /usr/local/nsev/bios
 
 ## Boot L1 VM
 
-1. Create an L1 VM image with Ubuntu 24.04.
+1. Create an L1 VM image with Ubuntu 24.04.  You can use [this image
+   (4.5 GB)](https://drive.google.com/file/d/1gaV1MIa3ScpFyhDl8tV0pXuEN_TUx20f/view?usp=drive_link),
+   where the software necessary for SEV virtualization with KVM and an
+   L2 VM image are pre-installed.
 
 2. Rename the image name to l1-vm.qcow2 and place it in
    /usr/local/nsev/images.
