@@ -24,5 +24,8 @@ $QEMU \
     -drive file=$DISK,if=none,id=disk0,format=qcow2 \
     -device scsi-hd,drive=disk0 \
     -device virtio-net-pci,netdev=net0 \
-    -netdev user,id=net0 \
-    -display none -vga none -serial stdio
+    -netdev user,id=net0,hostfwd=tcp::2022-:22 \
+    -display none -vga none \
+    -chardev stdio,id=char0,signal=off \
+    -serial chardev:char0
+

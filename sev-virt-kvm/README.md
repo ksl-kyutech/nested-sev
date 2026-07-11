@@ -2,17 +2,17 @@
 
 ## Install L1 KVM
 
-1. Install the Linux kernel with support for SEV virtualization in the
-   L1 VM.  This is the same kernel as L0 KVM.  If you build this
-   kernel in the L1 VM, follow the instruction for building L0 KVM.
+1. Install the Linux kernel with support for nested SEV in the L1 VM.
+   This is the same kernel as L0 KVM.  If you build this kernel in the
+   L1 VM, follow the instruction for building L0 KVM.
 
 2. Reboot the L1 VM with the kernel.
 
 ## Install L1 QEMU
 
-Install QEMU with support for SEV virtualization in the L1 VM.  This
-is the same as L0 QEMU.  If you build this QEMU in the L1 VM, follow
-the instruction for building L0 QEMU.
+Install QEMU with support for nested SEV in the L1 VM.  This is the
+same as L0 QEMU.  If you build this QEMU in the L1 VM, follow the
+instruction for building L0 QEMU.
 
 ## Install L2 OVMF
 
@@ -32,5 +32,11 @@ instruction for building L1 OVMF.
 
    ```
    sudo ./run-virt-l2.sh
+   ```
+
+5. Log in to the L2 VM using SSH.
+
+   ```
+   ssh -p 2022 localhost
    ```
 

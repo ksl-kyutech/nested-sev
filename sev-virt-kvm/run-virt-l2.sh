@@ -18,7 +18,7 @@ $QEMU \
     -enable-kvm \
     -smp 2 -m $MEM \
     -machine q35,confidential-guest-support=sev0,memory-backend=ram1 \
-    -object memory-backend-file,id=ram1,size=2G,mem-path=/dev/sev-shared,prealloc=off,share=on,readonly=off \
+    -object memory-backend-file,id=ram1,size=$MEM,mem-path=/dev/sev-shared,prealloc=off,share=on,readonly=off \
     -object sev-snp-guest,id=sev0,cbitpos=51,reduced-phys-bits=1,mem-path=/dev/sev-shared \
     -cpu host,host-cache-info=on \
     -bios $BIOS \
@@ -26,5 +26,8 @@ $QEMU \
     -drive file=$DISK,if=none,id=disk0,format=qcow2 \
     -device scsi-hd,drive=disk0 \
     -device virtio-net-pci,netdev=net0 \
-    -netdev user,id=net0 \
-    -vga none -display none -nographic -nodefaults -serial stdio
+    -netdev user,id=net0,hostfwd=tcp::2022-:22 \
+    -display none -vga none \
+    -chardev stdio,id=char0,signal=off \
+    -serial chardev:char0
+

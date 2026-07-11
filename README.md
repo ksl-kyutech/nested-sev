@@ -82,6 +82,12 @@ sudo cp Build/OvmfX64/DEBUG_GCC/FV/OVMF.fd /usr/local/nsev/bios
    sudo ./run-l1.sh
    ```
 
+4. Log in to the L1 VM using SSH.
+
+   ```
+   ssh -p 2022 localhost
+   ```
+
 ## Next Step
 
 - [SEV Virtualization with KVM](https://github.com/ksl-kyutech/nested-sev/blob/main/sev-virt-kvm/README.md)
