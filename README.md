@@ -55,7 +55,7 @@ sudo make install
 
 ## Build L1 OVMF
 
-Build OVMF with support for SEV-SNP.
+Build OVMF with SEV-SNP support on the host.
 
 ```
 git clone https://github.com/tianocore/edk2.git
