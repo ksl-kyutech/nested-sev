@@ -12,7 +12,7 @@
    git clone https://github.com/ksl-kyutech/nsev-linux-mem32.git
    cd nsev-linux-mem32
    make
-   sudo cp mem32.ko /usr/local/nsev
+   sudo cp mem32.ko /usr/local/nsev/images
    ```
 
 3. Reboot the L1 VM with the kernel.
@@ -20,6 +20,8 @@
 ## Build L1 QEMU
 
 Build and install QEMU with support for SEV passthrough in the L1 VM.
+If you want to coexist with QEMU with support for SEV virtualization,
+change the prefix.
 
 ```
 git clone https://github.com/ksl-kyutech/nsev-qemu-kvm-l1.git
