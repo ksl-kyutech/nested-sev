@@ -24,7 +24,7 @@ hypervisor to access the internal state of L2 VMs.
    git clone https://github.com/ksl-kyutech/nsev-linux.git
    cd nsev-linux
    make oldconfig
-   make
+   make -j$(nproc)
    sudo make modules_install
    sudo make install
    ```
@@ -49,7 +49,7 @@ cd nsev-qemu
 mkdir build
 cd build
 ../configure --prefix=/usr/local/nsev --target-list=x86_64-softmmu --enable-kvm
-make
+make -j$(nproc)
 sudo make install
 ```
 
